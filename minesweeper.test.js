@@ -11,19 +11,10 @@ import {
   checkLose,
   positionMatch,
 } from "./minesweeper"
-import { b } from "vitest/dist/suite-ghspeorC";
 
-// beforeEach(async () => {
-//   await stopMocking()
-// })
-// afterEach(async () => {
-//   await stopMocking()
-// })
-
-
+// test routine
 describe('sums', () => {
-  it('returns a sum', () => {
-    
+  it('returns a sum', () => {    
     expect(sums()).toBe(0)
   })
   it('returns a sum', () => {
@@ -34,10 +25,11 @@ describe('sums', () => {
   })
 })
 
+// test minesweeper
 describe('#createBoard', () => {
   it('creates a board', () => {
     const boardSize = 2
-    const minePositions = [{ x: 0, y: 1}]
+    const minePositions = [{ x: 0, y: 1 }]
     const newBoard = [
       [
         { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false},
@@ -67,6 +59,7 @@ describe('#markedTilesCount', () => {
     ]
     expect(markedTilesCount(board)).toEqual(2)
   })
+
   it('tests for no marked tiles', () => {
     const board = [
       [
@@ -80,6 +73,7 @@ describe('#markedTilesCount', () => {
     ]
     expect(markedTilesCount(board)).toEqual(0)
   })
+
   it('tests for all marked tiles', () => {
     const board = [
       [
@@ -167,6 +161,7 @@ describe('#markTile', () => {
     ]
     expect(markTile(board, {x: 0, y: 0})).toEqual(newBoard)
   })
+
   it('marks a tile without a mine and displays the number', () => {
     const board = [
       [
@@ -180,6 +175,7 @@ describe('#markTile', () => {
     ]
     expect(markTile(board, {x: 0, y: 0})).toEqual(board)
   })
+
   it('marks a tile with a mine and does nothing', () => {
     const board = [
       [
@@ -234,7 +230,7 @@ describe('#revealTile', () => {
     })      
 })
 
-describe('#revealTile without mines', () => {
+describe('#revealTile', () => {
   const board = [
     [
       { x: 0, y: 0, status: TILE_STATUSES.HIDDEN, mine: false },
@@ -373,14 +369,14 @@ describe('#checkLose', () => {
 
 describe('#positionMatch', () => {
   it('returns true when a and b match', () => {
-    const A = { x: 0, y: 0 }
-    const B = { x: 0, y: 0 }
-    expect(positionMatch(A, B)).toBeTruthy()
+    const aa = { x: 0, y: 0 }
+    const bb = { x: 0, y: 0 }
+    expect(positionMatch(aa, bb)).toBeTruthy()
   })
   it('returns true when a and b match', () => {
-    const A = { x: 0, y: 0 }
-    const B = { x: 1, y: 1 }
-    expect(positionMatch(A, B)).toBeFalsy()
+    const aa = { x: 0, y: 0 }
+    const bb = { x: 1, y: 1 }
+    expect(positionMatch(aa, bb)).toBeFalsy()
   })
 })
 
